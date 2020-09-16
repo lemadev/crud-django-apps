@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block page_content %}
+    <div class="container">
+        <h2>Turns management</h2>
+        <table class="table table-bordered" border="1">
+            <tr>
+                <th>Date</th>
+                <th>Person</th>
+                <th>Medic</th>
+                <th></th>
+                <th></th>
+            </tr>
+            {% for turn in turns %}
+            <tr>
+                <td> {{ turn.date }}</td>
+                <td> {{ turn.person.lastname }} {{ turn.person.name }} </td>
+                <td> {{ turn.medic.lastname }} {{ turn.medic.name }} </td>
+                <td> <a href="{% url 'detail_turn' turn.id%}">Detail</a> </td>
+                <td> <a href="{% url 'delete_turn' turn.id%}">Delete</a> </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <div>
+            <a href="{% url 'new_turn' %}">New Turn</a>
+        </div>
+        </br>
+        <div>
+            <a href="{% url 'indexMedics' %}">Medics Management</a>
+        </div>
+        </br>
+        <div>
+            <a href="{% url 'indexPersons' %}">Persons Management</a>
+        </div>
+    </div>
+    
+{% endblock %}

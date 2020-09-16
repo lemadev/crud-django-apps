@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block page_content %}
+
+    <div class="container">
+        <h2>New Turn</h2>
+        <form method="POST">   
+            {% csrf_token %}
+            <table>
+                {{form}}
+            </table>
+            <button type="submit" class="btn btn-primary">Create</button>
+        </form>
+        <div>
+            <a href="{% url 'new_turn' %}">Back to index</a>
+        </div>
+    </div>
+
+{% endblock %}

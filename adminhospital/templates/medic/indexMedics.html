@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block page_content %}
+    <div class="container">
+        <h2>Medics management</h2>
+        <table class="table table-bordered" border="1">
+            <tr>
+                <th>Name</th>
+                <th>Lastname</th>
+                <th>Specialty</th>
+                <th>Medic_id</th>
+                <th></th>
+                <th></th>
+            </tr>
+            {% for medic in medics %}
+            <tr>
+                <td> {{ medic.name }}</td>
+                <td> {{ medic.lastname }} </td>
+                <td> {{ medic.specialty }} </td>
+                <td> {{ medic.medic_id }}  </td>
+                <td> <a href="{% url 'edit_medic' medic.id%}">Edit</a> </td>
+                <td> <a href="{% url 'delete_medic' medic.id%}">Delete</a> </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <div>
+            <a href="{% url 'new_medic' %}">New Medic</a>
+        </div>
+        </br>
+        <div>
+            <a href="{% url 'admin_index' %}">Turn Management</a>
+        </div>
+    </div>
+    
+{% endblock %}

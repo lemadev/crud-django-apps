@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block page_content %}
+    <div class="container">
+        <h2>Turns Detail</h2>  
+            <div>Date: {{turn.date}}</div>
+            <div>Person: {{turn.person}}</div>
+            <div>Medic: {{turn.medic}}</div>
+            <div>Observations: {{turn.observations}}</div>
+        <div>
+            <a href="{% url 'admin_index' %}">Back to index</a>
+        </div>
+    </div>
+{% endblock %}
